@@ -12,6 +12,10 @@ You can open an issue on this project to raise an issue/argument about an existi
 
 You can also add a code sample with violation, and a code sample with violation fixed.
 
+### Want to translate the XAML coding guidelines in another language ?
+
+Sure ! Please create an issue, and we can discuss how we can work on creating multilingual version of these guidelines.
+
 ## Guidelines principles
 
 - **Be easy to follow**: Each rule must be explained as simple as possible. Any developer on his/her 1st day with Xaml must be able to follow these rules,
