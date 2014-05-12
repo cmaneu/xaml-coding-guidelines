@@ -107,10 +107,10 @@ Order all attributes in alphabetical order, with respect of the related rules.
 
 ##### **Related rules**
 
-- **XA1004**: Put the x:Name or x:Key
+- **XA1004**: Put the x:Name or x:Key as the first attribute
 - **XA1005**: Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
 
-#### XA1004 - Put the x:Name or x:Key
+#### XA1004 - Put the x:Name or x:Key as the first attribute
 ##### **Cause**
 Within an element tag, with the attribute `x:Name` or `x:Key` declared, this attribute is not the first declared.
 
@@ -126,7 +126,9 @@ A violation of this rule occurs when an element declare multiple attributes, and
 
 The attributes are more important than any others because:
 - They identify the uniqueness of that control, 
-- The identify that the control is used elsewere (storybard, code behind, binding, ...), and therefore, any changes made to that control must be done carefully.
+- The identify that the control is used elsewere (storybard, code behind, binding, ...).
+
+Getting this attribute at top help to identify these controls, and ensure any changes made to that control are done carefully.
 
 
 ##### **Related rules**
@@ -203,12 +205,68 @@ Use a self-closing element instead.
 
 ### XA2x. Naming
 
-#### XA2001 - Name elements with the `x:Name` attribute
-#### XA2002 - Use Pascal Casing
-#### XA2003 - Suffix XAML names with a type indication
-#### XA2004 - Do not use a precise type indication suffix, unless it's required
-#### XA2005 - Name only node used in code-behind, element binding or animation
+#### XA2001 - Name elements with the `x:Name` or `x:Key` attribute
+##### **Cause**
+Name or key attributes are used without the namespace prefix.
 
+```xml
+<Button Name="ValidationButton"
+        Text="Hello world" 
+        />
+```
+
+##### **Rule description**
+A violation of this rule occurs when the `Name` or `Key` attributes are declared without the `x:` namespace prefix.
+
+The attributes are more important than any others because:
+- They identify the uniqueness of that control, 
+- The identify that the control is used elsewere (storybard, code behind, binding, ...).
+
+Getting this attribute more visible with the namespace prefix help to identify these controls, and ensure any changes made to that control are done carefully.
+
+##### **How to fix violation**
+Always declare `x:Name` or `x:Key` with their `x:` namespace prefix.
+
+```xml
+<Button x:Name="ValidationButton"
+        Text="Hello world" 
+        ></Button>
+```
+
+#### XA2002 - Use Pascal Casing
+##### **Cause**
+##### **Rule description**
+A violation of this rule occurs when 
+##### **How to fix violation**
+
+#### XA2003 - Suffix XAML names with a type indication
+##### **Cause**
+##### **Rule description**
+A violation of this rule occurs when 
+##### **How to fix violation**
+
+#### XA2004 - Do not use a precise type indication suffix, unless it's required
+##### **Cause**
+##### **Rule description**
+A violation of this rule occurs when 
+
+For a lot of use cases, you don't need to know the exact element type. Let's see it in an example: 
+```xml	
+<StackPanel x:Name="ActionsPanel">
+    ...
+</StackPanel>
+```
+In that case, if you are just using `ActionsPanel` to change the visibility, the name is correct. `ActionsStackPanel` will convey too much details, and prevents you to change at a later time the `StackPanel` for a `Grid`.
+
+However, if you will change the `Orientation` property somewhere, `ActionsStackPanel` is an appropriate name, as you should be aware that you will use specific properties of the `StackPanel` class.
+
+##### **How to fix violation**
+
+#### XA2005 - Name only node used in code-behind, element binding or animation
+##### **Cause**
+##### **Rule description**
+A violation of this rule occurs when 
+##### **How to fix violation**
 
 
 
@@ -224,6 +282,16 @@ Use a self-closing element instead.
 
 #### XA4001 - Put the default styles within App.xaml, put the others styles in another file
 #### XA4002 - Within a resource file, declare the elements in the following order
+```
+<!-- #Constants -->
+<!-- #Colors -->
+<!-- #Brushes -->
+<!-- #Converters -->
+<!-- #Objects (such as Data) or commands (for ribbon),etc. -->
+<!-- #Styles -->
+<!-- #DataTemplates -->
+```
+
 #### XA4003 - When defining a SolidColorBrush resource, always define a Color resource as well
 
 
