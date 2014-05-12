@@ -178,10 +178,28 @@ Place all the attached properties, in an alphabetical order, first. If `x:Name` 
 
 #### XA1006 - If an element has no content, use a self-closing element
 ##### **Cause**
+An element use a closing tag without defining child elements.
+
+```xml
+<Button x:Name="ValidationButton"
+        Text="Hello world" 
+        ></Button>
+```
+
 ##### **Rule description**
+A violation of this rule occurs when an element does not declare child tags, and use a specific closing tag.
+This leads to too much space waste.
+
+Visual Studio and Blend XAML code editors can easily expand closing tags if needed while working on adding first child element, therefore that argument is not pertinent.
+
 ##### **How to fix violation**
+Use a self-closing element instead.
 
-
+```xml
+<Button x:Name="ValidationButton"
+        Text="Hello world" 
+        />
+```
 
 ### XA2x. Naming
 
@@ -194,7 +212,7 @@ Place all the attached properties, in an alphabetical order, first. If `x:Name` 
 
 
 
-# XA3x. Maintenability
+### XA3x. Maintenability
 
 #### XA3001 - Use the rule of 3 to decide if a value must be declared as a resource
 #### XA3002 - All the implicit styles must be placed at the top of the file, and must be annotated with a comment
