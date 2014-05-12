@@ -78,7 +78,7 @@ Place the first attribute on the same line as the element opening.
         Foreground="Blue"  />
 ```
 
-#### XA1003 - Within an element, order attributes alphabetically or with the proposed solution
+#### XA1003 - Within an element, order attributes alphabetically
 ##### **Cause**
 Within an element tag, attributes are unordered.
 ```xml
@@ -126,7 +126,7 @@ A violation of this rule occurs when an element declare multiple attributes, and
 
 The attributes are more important than any others because:
 - They identify the uniqueness of that control, 
-- The identify that the control is used elsewere (storybard, code behind, binding, ...).
+- They identify that the control is used elsewere (storybard, code behind, binding, ...).
 
 Getting this attribute at top help to identify these controls, and ensure any changes made to that control are done carefully.
 
@@ -220,7 +220,7 @@ A violation of this rule occurs when the `Name` or `Key` attributes are declared
 
 The attributes are more important than any others because:
 - They identify the uniqueness of that control, 
-- The identify that the control is used elsewere (storybard, code behind, binding, ...).
+- They identify that the control is used elsewere (storybard, code behind, binding, ...).
 
 Getting this attribute more visible with the namespace prefix help to identify these controls, and ensure any changes made to that control are done carefully.
 
