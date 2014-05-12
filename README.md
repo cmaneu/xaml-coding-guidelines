@@ -79,10 +79,51 @@ Place the first attribute on the same line as the element opening.
 ```
 
 #### XA1003 - Within an element, order attributes alphabetically or with the proposed solution
-#### XA1004 - Put the x:Name or x:Key
-#### XA1005 - Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
-#### XA1006 - If an element has no content, use a self-closing element
+##### **Cause**
+Within an element tag, attributes are unordered.
+```xml
+<Button Text="Hello world" 
+        Foreground="Blue"
+        TextAlignment="Center"
+        />
+```
 
+##### **Rule description**
+A violation of this rule occurs whenether attributes within an element are not ordered alphabetically within an element declaration.
+
+**Current proposal and discussions**
+There are discussions about this rule. Please see the [related proposal](https://github.com/cmaneu/xaml-coding-guidelines/issues/1).
+
+##### **How to fix violation**
+Order all attributes in alphabetical order, with respect of the related rules.
+
+```xml
+<Button Foreground="Blue"
+        Text="Hello world" 
+        TextAlignment="Center"
+        />
+```
+
+
+##### **Related rules**
+
+- **XA1004**: Put the x:Name or x:Key
+- **XA1005**: Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
+
+#### XA1004 - Put the x:Name or x:Key
+##### **Cause**
+##### **Rule description**
+##### **How to fix violation**
+
+#### XA1005 - Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
+##### **Cause**
+##### **Rule description**
+##### **How to fix violation**
+
+#### XA1006 - If an element has no content, use a self-closing element
+##### **Cause**
+##### **Rule description**
+##### **How to fix violation**
 
 
 
@@ -114,4 +155,10 @@ Place the first attribute on the same line as the element opening.
 
 ## Guidelines authors
 
-Please see repository contributors.
+Please see [repository contributors](https://github.com/cmaneu/xaml-coding-guidelines/graphs/contributors).
+
+
+## Work in progress
+
+### Attributes ordering proposal
+
