@@ -10,11 +10,11 @@ You can open an issue on this project to raise an issue/argument about an existi
 - Justification
 - How to fix violation
 
-You can also add a code sample with violation, and a code sample with violation fixed.
+You can also add a code sample with violation and a code sample with violation fixed.
 
 ### Want to translate the XAML coding guidelines in another language ?
 
-Sure ! Please create an issue, and we can discuss how we can work on creating multilingual version of these guidelines.
+Sure ! Please create an issue and we can discuss how we can work on creating multilingual version of these guidelines.
 
 ## Guidelines principles
 
@@ -122,13 +122,13 @@ Within an element tag, with the attribute `x:Name` or `x:Key` declared, this att
 ```
 
 ##### **Rule description**
-A violation of this rule occurs when an element declare multiple attributes, and at least a `x:Name` or `x:Key` attribute, this attribute must be placed first.
+A violation of this rule occurs when an element declare multiple attributes and at least a `x:Name` or `x:Key` attribute, this attribute must be placed first.
 
 The attributes are more important than any others because:
 - They identify the uniqueness of that control, 
 - They identify that the control is used elsewere (storybard, code behind, binding, ...).
 
-Getting this attribute at top help to identify these controls, and ensure any changes made to that control are done carefully.
+Getting this attribute at top help to identify these controls and ensure any changes made to that control are done carefully.
 
 
 ##### **Related rules**
@@ -161,7 +161,7 @@ Attached properties are declared in any order within the element properties.
 ```
 
 ##### **Rule description**
-A violation of this rule occurs when an element declares attached properties, and their declaration is not at the top of all attributes declarations, except the `x:Name` and `x:Key` attributes.
+A violation of this rule occurs when an element declares attached properties and their declaration is not at the top of all attributes declarations, except the `x:Name` and `x:Key` attributes.
 
 Attached properties can change the appearence or behavior of your control. They can also surcharge some of the control properties. Declaring them at the top helps you identifiy these cases.
 
@@ -189,7 +189,7 @@ An element use a closing tag without defining child elements.
 ```
 
 ##### **Rule description**
-A violation of this rule occurs when an element does not declare child tags, and use a specific closing tag.
+A violation of this rule occurs when an element does not declare child tags and use a specific closing tag.
 This leads to too much space waste.
 
 Visual Studio and Blend XAML code editors can easily expand closing tags if needed while working on adding first child element, therefore that argument is not pertinent.
@@ -222,7 +222,7 @@ The attributes are more important than any others because:
 - They identify the uniqueness of that control, 
 - They identify that the control is used elsewere (storybard, code behind, binding, ...).
 
-Getting this attribute more visible with the namespace prefix help to identify these controls, and ensure any changes made to that control are done carefully.
+Getting this attribute more visible with the namespace prefix help to identify these controls and ensure any changes made to that control are done carefully.
 
 ##### **How to fix violation**
 Always declare `x:Name` or `x:Key` with their `x:` namespace prefix.
@@ -251,7 +251,7 @@ An element is named without a type indication.
 ##### **Rule description**
 A violation of this rule occurs when an element's name does not includes any hint about the elment's type at the end of it's name.
 
-Suffixing element's name helps identify the page/control class members that are part of the UI, and get a sens of what we can do with them.
+Suffixing element's name helps identify the page/control class members that are part of the UI and get a sens of what we can do with them.
 
 ##### **How to fix violation**
 Suffix the element's name with a type indication.
@@ -281,7 +281,7 @@ ActionsStackPanel.Opacity = 0;
 ```
 
 ##### **Rule description**
-A violation of this rule occurs when an element's name contains precise type indication, and when no code is using specificities of this class, but only properties/methods defined on a base class/interface.
+A violation of this rule occurs when an element's name contains precise type indication and when no code is using specificities of this class, but only properties/methods defined on a base class/interface.
 
 For a lot of use cases, you don't need to know the exact element type. Let's see it in an example: 
 ```xml	
@@ -289,7 +289,7 @@ For a lot of use cases, you don't need to know the exact element type. Let's see
     ...
 </StackPanel>
 ```
-In that case, if you are just using `ActionsPanel` to change the visibility, the name is correct. `ActionsStackPanel` will convey too much details, and prevents you to change at a later time the `StackPanel` for a `Grid`.
+In that case, if you are just using `ActionsPanel` to change the visibility, the name is correct. `ActionsStackPanel` will convey too much details and prevents you to change at a later time the `StackPanel` for a `Grid`.
 
 However, if you will change the `Orientation` property somewhere, `ActionsStackPanel` is an appropriate name, as you should be aware that you will use specific properties of the `StackPanel` class.
 
@@ -298,7 +298,7 @@ Remove precise indication suffix.
 
 #### XA2005 - Name only node used in code-behind, element binding or animation
 ##### **Cause**
-An element define a name, and nobody uses it.
+An element defines a name and nobody uses it.
 ```xml	
 <StackPanel x:Name="ActionsPanel">
     ...
@@ -310,7 +310,7 @@ An element define a name, and nobody uses it.
 ```
 
 ##### **Rule description**
-A violation of this rule occurs when an element define a `x:Name` or `x:Key` attribute, and this name/key is not referenced/used in any code-behind code, element binding, or storyboard.
+A violation of this rule occurs when an element defines a `x:Name` or `x:Key` attribute and this name/key is not referenced/used in any code-behind code, element binding, or storyboard.
 
 ##### **How to fix violation**
 Remove `x:Name` or `x:Key` attribute.
@@ -335,7 +335,7 @@ A violation of this rule occurs when a property value is used more than 2 times 
 - Move the value to a resource, 
 - Replace all value usage by a StaticResource binding.
 
-#### XA3002 - All the implicit styles must be placed at the top of the file, and must be annotated with a comment
+#### XA3002 - All the implicit styles must be placed at the top of the file and must be annotated with a comment
 ##### **Cause**
 An implicit style is declared elsewhere on a page/resource dictionary.
 
@@ -344,7 +344,7 @@ A violation of this rule occurs when an implicit style is declared anywhere on a
 
 The implicit style must be used only when they apply to a whole page/app. If they apply only to a subset of a page/app, they must be declared as explicit styles.
 
-As these styles have a broad impact, they must be declared first, and commented properly to give them visibility.
+As these styles have a broad impact, they must be declared first and commented properly to give them visibility.
 
 ##### **How to fix violation**
 If the style is used throughout the file:
