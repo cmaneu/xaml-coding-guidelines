@@ -324,12 +324,41 @@ Remove `x:Name` or `x:Key` attribute.
 ### XA3x. Maintenability
 
 #### XA3001 - Use the rule of 3 to decide if a value must be declared as a resource
+##### **Cause**
+A property value is used at least three times.
+
+##### **Rule description**
+A violation of this rule occurs when a property value is used more than 2 times at different places. If so, this value will likely be used elsewere. For a greater maintenability, this property value must be declared as a resource.
+
+##### **How to fix violation**
+
+- Move the value to a resource, 
+- Replace all value usage by a StaticResource binding.
+
 #### XA3002 - All the implicit styles must be placed at the top of the file, and must be annotated with a comment
+##### **Cause**
+An implicit style is declared elsewhere on a page/resource dictionary.
 
+##### **Rule description**
+A violation of this rule occurs when an implicit style is declared anywhere on a page/resource dictionary file, except at the top.
 
+The implicit style must be used only when they apply to a whole page/app. If they apply only to a subset of a page/app, they must be declared as explicit styles.
+
+As these styles have a broad impact, they must be declared first, and commented properly to give them visibility.
+
+##### **How to fix violation**
+If the style is used throughout the file:
+- Move the style declaration at the top of the `Resources` element,
+- Add a comment before the style declaration, stating the implicit nature.
+
+If the style is used only on a portion of the file:
+- Make the style an explicit style,
+- Add the proper style binding in all involved controls.
 
 
 ### XA4x. Resource files organization
+
+The following rules are under editing.
 
 #### XA4001 - Put the default styles within App.xaml, put the others styles in another file
 #### XA4002 - Within a resource file, declare the elements in the following order
@@ -343,9 +372,6 @@ Remove `x:Name` or `x:Key` attribute.
 <!-- #DataTemplates -->
 ```
 
-#### XA4003 - When defining a SolidColorBrush resource, always define a Color resource as well
-
-
 ## Guidelines authors
 
 Please see [repository contributors](https://github.com/cmaneu/xaml-coding-guidelines/graphs/contributors).
@@ -353,5 +379,4 @@ Please see [repository contributors](https://github.com/cmaneu/xaml-coding-guide
 
 ## Work in progress
 
-### Attributes ordering proposal
-
+Please see [opened issues](https://github.com/cmaneu/xaml-coding-guidelines/issues?state=open).
