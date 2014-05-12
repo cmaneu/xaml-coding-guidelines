@@ -112,8 +112,38 @@ Order all attributes in alphabetical order, with respect of the related rules.
 
 #### XA1004 - Put the x:Name or x:Key
 ##### **Cause**
+Within an element tag, with the attribute `x:Name` or `x:Key` declared, this attribute is not the first declared.
+
+```xml
+<Button Text="Hello world" 
+        x:Name="ValidationButton"
+        TextAlignment="Center"
+        />
+```
+
 ##### **Rule description**
+When an element declare multiple attributes, and at least a `x:Name` or `x:Key` attribute, this attribute must be placed first.
+
+The attributes are more important than any others because:
+- They identify the uniqueness of that control, 
+- The identify that the control is used elsewere (storybard, code behind, binding, ...), and therefore, any changes made to that control must be done carefully.
+
+
+##### **Related rules**
+
+- **XA1005**: Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
+- **XA2001**: Name elements with the `x:Name` attribute
+
 ##### **How to fix violation**
+Place the `x:Name` or `x:Key` attribute first.
+```xml
+<Button x:Name="ValidationButton"
+        Text="Hello world" 
+        TextAlignment="Center"
+        />
+```
+
+
 
 #### XA1005 - Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
 ##### **Cause**
