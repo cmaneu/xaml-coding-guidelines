@@ -122,7 +122,7 @@ Within an element tag, with the attribute `x:Name` or `x:Key` declared, this att
 ```
 
 ##### **Rule description**
-When an element declare multiple attributes, and at least a `x:Name` or `x:Key` attribute, this attribute must be placed first.
+A violation of this rule occurs when an element declare multiple attributes, and at least a `x:Name` or `x:Key` attribute, this attribute must be placed first.
 
 The attributes are more important than any others because:
 - They identify the uniqueness of that control, 
@@ -147,8 +147,34 @@ Place the `x:Name` or `x:Key` attribute first.
 
 #### XA1005 - Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
 ##### **Cause**
+Attached properties are declared in any order within the element properties.
+
+```xml
+<Button x:Name="ValidationButton"
+        Text="Hello world" 
+        Grid.Column="2"
+        Grid.Row="0"
+        TextAlignment="Center"
+        />
+```
+
 ##### **Rule description**
+A violation of this rule occurs when an element declares attached properties, and their declaration is not at the top of all attributes declarations, except the `x:Name` and `x:Key` attributes.
+
+Attached properties can change the appearence or behavior of your control. They can also surcharge some of the control properties. Declaring them at the top helps you identifiy these cases.
+
 ##### **How to fix violation**
+Place all the attached properties, in an alphabetical order, first. If `x:Name` and `x:Key` attributes are declared, they are declared before any attached property declaration.
+
+```xml
+<Button x:Name="ValidationButton"
+        Grid.Column="2"
+        Grid.Row="0"
+        Text="Hello world" 
+        TextAlignment="Center"
+        />
+```
+
 
 #### XA1006 - If an element has no content, use a self-closing element
 ##### **Cause**
