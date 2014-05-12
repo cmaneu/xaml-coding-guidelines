@@ -24,17 +24,46 @@ You can also add a code sample with violation, and a code sample with violation 
 
 ### XA1x. Code readability
 
-#### XA1001 - Put the first attribute on the element line
+#### XA1001 - Put one attribute per line
 
 ##### **Cause**
+
+Multiple attributes are declared on the same line.
+
+##### **Rule description**
+
+A violation of this rule occurs whenether an element has multiple attributes declared on the same line. For example: 
+
+```xml
+<Button x:Name="MyButton" Text="Hello world" Foreground="Blue"  />
+```
+
+Quickly, this can leads to *forgotten attributes*, because the XAML code editor is often splitted in two with code view and design view. We could apply a specific rule, like "limit to 60 column caracters" or "limit to 2 attributes per line". However, all these rules create special cases and interpretations that lead to difficulties in implementing this rule in our brain. Therefore, it's more suitable to apply a simple rule anytime.
+
+##### **How to fix violation**
+
+To fix a violation of this rule, place only one attribute per line.
+
+You can also use the default key combo `Ctrl+K, Ctrl+F` to automatically format the current selection/document.
+
+```xml
+<Button x:Name="MyButton" 
+        Text="Hello world" 
+        Foreground="Blue"  />
+```
+
+#### XA1002 - Put the first attribute on the element line
+
+##### **Cause**
+
 ##### **Rule description**
 ##### **Justification**
 ##### **How to fix violation**
 
-#### XA1002 - Within an element, order attributes alphabetically or with the proposed solution
-#### XA1003 - Put the x:Name or x:Key
-#### XA1004 - Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
-#### XA1005 - If an element has no content, use a self-closing element
+#### XA1003 - Within an element, order attributes alphabetically or with the proposed solution
+#### XA1004 - Put the x:Name or x:Key
+#### XA1005 - Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
+#### XA1006 - If an element has no content, use a self-closing element
 
 
 ### XA2x. Naming
