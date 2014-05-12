@@ -234,21 +234,54 @@ Always declare `x:Name` or `x:Key` with their `x:` namespace prefix.
 ```
 
 #### XA2002 - Use Pascal Casing
-##### **Cause**
-##### **Rule description**
-A violation of this rule occurs when 
-##### **How to fix violation**
+
+This rule is under editing, waiting for comments.
+
 
 #### XA2003 - Suffix XAML names with a type indication
 ##### **Cause**
+An element is named without a type indication.
+
+```xml
+<Button x:Name="Checkout"
+        Text="Checkout" 
+        ></Button>
+```
+
 ##### **Rule description**
-A violation of this rule occurs when 
+A violation of this rule occurs when an element's name does not includes any hint about the elment's type at the end of it's name.
+
+Suffixing element's name helps identify the page/control class members that are part of the UI, and get a sens of what we can do with them.
+
 ##### **How to fix violation**
+Suffix the element's name with a type indication.
+
+```xml
+<Button x:Name="CheckoutButton"
+        Text="Checkout" 
+        ></Button>
+```
+
+##### **Related rules**
+
+- **XA2004** Do not use a precise type indication suffix, unless it's required
 
 #### XA2004 - Do not use a precise type indication suffix, unless it's required
 ##### **Cause**
+An element's name indicate precise type, wheras no code is using any type-specific properties/methods.
+
+```xml	
+<StackPanel x:Name="ActionsStackPanel">
+    ...
+</StackPanel>
+```
+
+```
+ActionsStackPanel.Opacity = 0;
+```
+
 ##### **Rule description**
-A violation of this rule occurs when 
+A violation of this rule occurs when an element's name contains precise type indication, and when no code is using specificities of this class, but only properties/methods defined on a base class/interface.
 
 For a lot of use cases, you don't need to know the exact element type. Let's see it in an example: 
 ```xml	
@@ -261,14 +294,32 @@ In that case, if you are just using `ActionsPanel` to change the visibility, the
 However, if you will change the `Orientation` property somewhere, `ActionsStackPanel` is an appropriate name, as you should be aware that you will use specific properties of the `StackPanel` class.
 
 ##### **How to fix violation**
+Remove precise indication suffix.
 
 #### XA2005 - Name only node used in code-behind, element binding or animation
 ##### **Cause**
+An element define a name, and nobody uses it.
+```xml	
+<StackPanel x:Name="ActionsPanel">
+    ...
+</StackPanel>
+```
+
+```
+    ...
+```
+
 ##### **Rule description**
-A violation of this rule occurs when 
+A violation of this rule occurs when an element define a `x:Name` or `x:Key` attribute, and this name/key is not referenced/used in any code-behind code, element binding, or storyboard.
+
 ##### **How to fix violation**
+Remove `x:Name` or `x:Key` attribute.
 
-
+```xml	
+<StackPanel>
+    ...
+</StackPanel>
+```
 
 ### XA3x. Maintenability
 
