@@ -25,17 +25,13 @@ Sure ! Please create an issue, and we can discuss how we can work on creating mu
 
 ## Rules
 
-
 ### XA1x. Code readability
 
 #### XA1001 - Put one attribute per line
-
 ##### **Cause**
-
 Multiple attributes are declared on the same line.
 
 ##### **Rule description**
-
 A violation of this rule occurs whenether an element has multiple attributes declared on the same line. For example: 
 
 ```xml
@@ -45,7 +41,6 @@ A violation of this rule occurs whenether an element has multiple attributes dec
 Quickly, this can leads to *forgotten attributes*, because the XAML code editor is often splitted in two with code view and design view. We could apply a specific rule, like "limit to 60 column caracters" or "limit to 2 attributes per line". However, all these rules create special cases and interpretations that lead to difficulties in implementing this rule in our brain. Therefore, it's more suitable to apply a simple rule anytime.
 
 ##### **How to fix violation**
-
 To fix a violation of this rule, place only one attribute per line.
 
 You can also use the default key combo `Ctrl+K, Ctrl+F` to automatically format the current selection/document.
@@ -59,15 +54,36 @@ You can also use the default key combo `Ctrl+K, Ctrl+F` to automatically format 
 #### XA1002 - Put the first attribute on the element line
 
 ##### **Cause**
+When an element has at least one attribute defined, the first line contains only the element.
 
 ##### **Rule description**
-##### **Justification**
+A violation of this rule occurs whenether an element is the only thing declared on the line.
+
+```xml
+<Button 
+    x:Name="MyButton" 
+    Text="Hello world" 
+    Foreground="Blue"  />
+```
+
+Declaring only the element without one of the attributes can leads to too many carriage return when the element is containing only one attribute. We can't create an exception fo these one-attribute element declarations.
+
+Moreover, adding the attributes on the subsequent leads can lead to a tab alignment which is under the element. This alignment is not relarly optimal for reading.
+
 ##### **How to fix violation**
+Place the first attribute on the same line as the element opening.
+```xml
+<Button x:Name="MyButton" 
+        Text="Hello world" 
+        Foreground="Blue"  />
+```
 
 #### XA1003 - Within an element, order attributes alphabetically or with the proposed solution
 #### XA1004 - Put the x:Name or x:Key
 #### XA1005 - Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
 #### XA1006 - If an element has no content, use a self-closing element
+
+
 
 
 ### XA2x. Naming
@@ -80,10 +96,12 @@ You can also use the default key combo `Ctrl+K, Ctrl+F` to automatically format 
 
 
 
+
 # XA3x. Maintenability
 
 #### XA3001 - Use the rule of 3 to decide if a value must be declared as a resource
 #### XA3002 - All the implicit styles must be placed at the top of the file, and must be annotated with a comment
+
 
 
 
