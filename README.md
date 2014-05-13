@@ -230,7 +230,7 @@ Always declare `x:Name` or `x:Key` with their `x:` namespace prefix.
 ```xml
 <Button x:Name="ValidationButton"
         Text="Hello world" 
-        ></Button>
+        />
 ```
 
 #### XA2002 - Use Pascal Casing
@@ -245,7 +245,7 @@ An element is named without a type indication.
 ```xml
 <Button x:Name="Checkout"
         Text="Checkout" 
-        ></Button>
+        />
 ```
 
 ##### **Rule description**
@@ -259,7 +259,7 @@ Suffix the element's name with a type indication.
 ```xml
 <Button x:Name="CheckoutButton"
         Text="Checkout" 
-        ></Button>
+        />
 ```
 
 ##### **Related rules**
