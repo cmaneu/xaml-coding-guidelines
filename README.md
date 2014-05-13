@@ -32,7 +32,7 @@ Sure ! Please create an issue and we can discuss how we can work on creating mul
 Multiple attributes are declared on the same line.
 
 ##### **Rule description**
-A violation of this rule occurs whenether an element has multiple attributes declared on the same line. For example: 
+A violation of this rule occurs whenever an element has multiple attributes declared on the same line. For example: 
 
 ```xml
 <Button x:Name="MyButton" Text="Hello world" Foreground="Blue"  />
