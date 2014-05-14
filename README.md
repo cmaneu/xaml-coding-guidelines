@@ -22,8 +22,31 @@ Sure! Please create an issue and we can discuss how we can work on creating mult
 - **Be as uncontroversial as possible**: These rules must be out of debate. We're not here to determine if it's better to have a white-themed Visual Studio or a black-themed one (Pro-Tip: the correct answer is of course black). So, each rule must have a justification. An inspiration from [StyleCop](http://www.stylecop.com/docs/StyleCop%20Rules.html) rules can be useful,
 - **Be usable for any Xaml-based project**: Windows Phone, WPF or Universal apps. It must apply for all of them. If a rule only applies to one platform, it should go under a platform-specific section.
 
+## Rules 
+### XA1x. Code readability
 
-## Rules
+- XA1001 - Put one attribute per line
+- XA1002 - Put the first attribute on the element line
+- XA1003 - Within an element, order attributes alphabetically
+- XA1004 - Put the x:Name or x:Key as the first attribute
+- XA1005 - Put the attached properties at the beginning of the element, eventually after the x:Name/x:Key
+- XA1006 - If an element has no content, use a self-closing element
+
+
+### XA2x. Naming
+
+- XA2001 - Name elements with the `x:Name` or `x:Key` attribute
+- XA2002 - Under editing
+- XA2003 - Suffix XAML names with a type indication
+- XA2004 - Do not use a precise type indication suffix, unless it's required
+- XA2005 - Name only nodes used in code-behind, element binding or animation
+
+### XA3x. Maintenability
+
+- XA3001 - Use the rule of 3 to decide if a value must be declared as a resource
+- XA3002 - All the implicit styles must be placed at the top of the file and must be annotated with a comment
+
+## Rules content (to be moved to separate files)
 
 ### XA1x. Code readability
 
