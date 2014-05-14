@@ -355,6 +355,26 @@ If the style is used only on a portion of the file:
 - Make the style an explicit style,
 - Add the proper style binding in all involved controls.
 
+#### XA3003 - Name should reflect usage scenario
+##### **Cause**
+As the application evolves, styles tend to get used on controls and/or cases that weren’t necessarily thought of in the first place. Having style names reflecting their usage eases app maintenance.
+
+##### **Rule description**
+A violation of this rule occurs when a style is used for something else that it was initially meant for causing its name to be out of sync with its purpose. For example:
+
+```xml	
+<Style x:Key="ListBoxStyle" TargetType="phone:LongListSelector" />
+```
+
+As soon as the use of a style is changed and/or extended it should be renamed to reflect its new use.
+
+##### **How to fix violation**
+
+Rename your style to reflect its use.
+
+```xml	
+<Style x:Key=" LongListSelectorStyle" TargetType="phone:LongListSelector" />
+```
 
 ### XA4x. Resource file organization
 
